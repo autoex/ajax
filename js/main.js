@@ -4,8 +4,9 @@ let count = document.querySelector(".count");
 let btn = document.querySelector("button");
 
 btn.addEventListener("click", () => {
-    out.innerHTML ='';
-  getImages(page.value, count.value, onReceiveData);
+  out.innerHTML = "";
+  let promise = getImages(page.value, count.value);
+  return promise.then(onReceiveData)
 });
 
 function onReceiveData(data) {
