@@ -3,10 +3,10 @@ let page = document.querySelector(".page");
 let count = document.querySelector(".count");
 let btn = document.querySelector("button");
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", async() => {
   out.innerHTML = "";
-  let promise = getImages(page.value, count.value);
-  return promise.then(onReceiveData)
+  let promise = await getImages(page.value, count.value);
+ onReceiveData(promise);
 });
 
 function onReceiveData(data) {
